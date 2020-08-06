@@ -1,0 +1,22 @@
+syntax = "proto3";
+option go_package = "parse_service/proto";
+
+service Parse {
+	rpc Info(ParseReq) returns (ParseRsp) {}
+	rpc Score(ParseReq) returns (ParseRsp) {}
+}
+
+message ParseReq {
+	string id = 1;
+	string body = 2;
+	uint32 page_num = 3;
+	string req_id = 4;
+}
+
+message ParseRsp {
+	string id = 1;
+	string body = 2;
+	uint32 page_num = 3;
+	string req_id = 4;
+    map<string, string> data = 5;
+}
